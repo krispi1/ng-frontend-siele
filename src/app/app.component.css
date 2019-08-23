@@ -1,0 +1,148 @@
+/*-------------------NavBar style-------------------*/
+.pageLogo {
+    color: #F62F5E;
+    font-weight: bold;
+    font-size: 1.5em; 
+}
+
+.pageLogo:hover {
+    color: #F62F5E;
+    -webkit-box-shadow: 0px 1px 7px 1px #F62F5E;
+    -moz-box-shadow: 0px 1px 7px 1px #F62F5E;
+    box-shadow: 0px 1px 7px 1px #F62F5E;
+}
+
+.pageLogo:active {
+    color: #F62F5E;
+}
+
+.pageLogo:focus {
+    color: #F62F5E;
+}
+
+#topNav {
+    top: 0;
+    margin-bottom: 1px;
+    font-weight: 700;
+}
+
+#topNavRow {
+    width: 100%;
+    padding: 0 20px;
+}
+
+#topNavRow > div {
+    display: -webkit-flex;
+    -webkit-flex-direction: row;
+    
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
+
+.topNavSpanLink {
+    margin-right: 10px;
+}
+
+#topNavRow > div > .pinkLink {
+    color: #F62F5E;
+    margin: 0 5px;
+}
+
+.linkImage {
+    width: 20px;
+    height: 17px;
+    margin: 0 1px 3px 3px;
+}
+
+#checkoutAmount {
+    color: #F62F5E;
+    margin: 0 3px;
+}
+
+/*------------------------------------------------------*/
+
+#secondNavRow {
+    width: 100%;
+    padding: 0 20px;
+}
+
+#secondNavRow > div {
+    display: -webkit-flex;
+    -webkit-flex-direction: row;
+    
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
+
+.nav-link {
+    color: white;
+    font-weight: 600;
+}
+
+.nav-link:hover {
+    color: #F62F5E;
+}
+
+.nav-link:active {
+    color: skyblue;
+}
+
+#secondNavRowDiv3 > input {
+    border: none;
+    outline: none;
+    border-radius: 50px;
+    height: 60%;
+    margin: 10px 0 1px 0;
+    padding: 0 6px;
+    border: 1px #F62F5E solid;
+}
+
+#secondNavRowDiv3 > input:focus {
+    padding-left: 7px;
+    -webkit-box-shadow: 0px 2px 17px 2px #F62F5E;
+    -moz-box-shadow: 0px 2px 17px 2px #F62F5E;
+    box-shadow: 0px 2px 17px 2px #F62F5E;
+}
+
+/*------------------NavBar Mobile----------------------*/
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) { 
+    #topNav {
+        top: 0;
+        margin-bottom: 1px;
+        font-weight: 800;
+    }
+
+    #topNavRow > div {
+        margin: 0 5px;
+        display: flex;
+        flex-direction: row;
+        flex-grow: 1;
+        flex-basis: 100%;
+    }
+
+    #checkoutImage {
+        width: 20px;
+        height: 17px;
+        margin-left: 0px;
+    }
+}
+
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) { 
+
+}
+
+/*-------------------end NavBar style-------------------*/
+
+/*-------------------Main Content style-------------------*/
+#mainContent {
+    display: flex;
+}
+
+#main-content-area {
+    margin: 0 0 0 40px;
+}

@@ -1,0 +1,49 @@
+<footer id="footer" class="text-center">
+    
+    <div id="footerDiv1" class="footer-div">
+        
+        <a 
+        class="nav-link" 
+        *ngFor="let department of departments"
+        routerLink="/products/indepartment/{{department.department_id}}"
+        (click)="fetchProductsInDepartment()"
+        routerLinkActive="active"
+        >{{department.name}}</a> 
+        
+    </div>
+   
+    <div id="footerDiv2" class="footer-div">
+   
+        <a href="https://www.instagram.com/turingcom/" target="_blank">
+            <img 
+                class="footerItem" 
+                src="../../assets/images/instagram.png" />
+        </a>
+        
+        <a href="https://www.linkedin.com/company/turingcom/" target="_blank">
+            <img 
+                class="footerItem" 
+                src="../../assets/images/linkedin.png" />
+        </a>
+
+        <a href="https://twitter.com/turingcom" target="_blank">
+            <img 
+                class="footerItem" 
+                src="../../assets/images/twitter.png" />
+        </a>
+
+        <a href="https://www.facebook.com/turingcom/" target="_blank">
+            <img 
+                class="footerItem" 
+                src="../../assets/images/facebook.png" />
+        </a>
+   
+    </div>
+
+    <div id="footerDiv3" class="footer-div">
+        <div class="footerItem">&copy;2019 Shopmate Ltd</div>
+        <div class="footerItem">Contact</div>
+        <div class="footerItem">Privacy Policy</div>
+    </div>
+
+</footer>

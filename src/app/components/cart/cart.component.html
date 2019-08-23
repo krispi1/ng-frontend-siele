@@ -1,0 +1,79 @@
+<div id="cartHeader">
+  <div class="item">
+    <button
+      class="button-left"
+      (click)="emptyCart()">EMPTY CART</button>
+  </div>
+  <div class="item"><strong>Total: ${{cartTotal}}</strong></div>
+  <div class="item">
+    <button
+      class="button-right"
+      (click)="placeOrder()">PLACE ORDER</button>
+  </div>
+</div>
+
+<br>
+<table>
+  <thead>
+    <tr>
+      <th class="cartItem"></th>
+      <th class="cartItem">Name</th>
+      <th class="cartItem">Attributes</th>
+      <th class="cartItem">Price</th>
+      <th class="cartItem">Quantity</th>
+      <th class="cartItem">Subtotal</th>
+      <th class="cartItem" style="display: block">Item Id</th>
+    </tr>
+  </thead>
+
+  <tbody *ngIf="cartProducts">
+    <tr
+      *ngFor="let cartProduct of cartProducts"
+      id="{{cartProduct.item_id}}"
+    >
+      <td class="text-muted cartItem">
+        <button
+          id="delete-button"
+          (click)="deleteItemFromCart(cartProduct)"
+        >X</button></td>
+      <td class="text-muted cartItem">{{cartProduct.name}}</td>
+      <td class="text-muted cartItem">{{cartProduct.attributes}}</td>
+      <td class="text-muted cartItem">{{cartProduct.price}}</td>
+      <td class="text-muted cartItem">
+        <button
+          class="cart-button left-button"
+          (click)="reduceQuantity(cartProduct)"
+        >-</button>
+        <span id="productQuantity">{{cartProduct.quantity}}</span>
+        <button
+          class="cart-button right-button"
+          (click)="increaseQuantity(cartProduct)"
+        >+</button>
+      </td>
+      <td class="text-muted cartItem">{{cartProduct.subtotal}}</td>
+      <td
+        class="text-muted cartItem">
+        <div id="itemId">{{cartProduct.item_id}}</div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!--
+ Cart{
+    item_id	integer
+      example: 2
+    name	string
+      example: Arc d'Triomphe
+    attributes	string
+      example: LG, red
+    product_id	number
+      example: 1
+    price	string
+      example: 14.99
+    quantity	integer
+      example: 1
+    subtotal	string
+      example: 14.99
+  }
+-->

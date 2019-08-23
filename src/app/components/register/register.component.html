@@ -1,0 +1,141 @@
+<div id="myModal" class="overlay">
+
+  <a 
+    href="javascript:void(0)" 
+    class="closebtn" 
+    (click)="closeModal()">X
+  </a>
+  <!-- &times; -->
+  <div class="overlay-content">
+    <form 
+      [formGroup]="registerForm" 
+      (ngSubmit)="onSubmit()"
+      novalidate>
+
+      <a routerLink="/">
+        <img 
+        class="mb-2" 
+        src="../../assets/images/brand_icons/android-chrome-192x192.png" alt="" width="50"
+        height="50">
+      </a>
+      
+      <h3 class="text-primary">Register</h3>
+
+      <div>
+        <label 
+          for="name" 
+          aria-label="name">
+        </label>
+        <input 
+          type="text" 
+          formControlName="name" 
+          name="name" 
+          placeholder="Name" 
+          required autofocus
+          />
+      </div>
+      <br>
+
+      <label 
+        for="email" 
+        aria-label="email">
+        <input 
+          type="email" 
+          formControlName="email" 
+          name="email" 
+          placeholder="Email" 
+          required /><br>
+      </label><br>
+
+      <label 
+        for="password" 
+        aria-label="password">
+        <input
+          type="password" 
+          formControlName="password" 
+          name="password" 
+          placeholder="Password" 
+          required /><br>
+      </label><br>
+
+      <label 
+        for="confirmPassword" 
+        aria-label="confirmPassword">
+        <input
+          type="password" 
+          formControlName="confirmPassword" 
+          name="confirmPassword" 
+          placeholder="Confirm Password" 
+          required /><br>
+      </label><br>
+
+      <div class="errorDiv" 
+        *ngIf="submitted &&
+               registerForm.dirty && 
+               registerForm.invalid &&
+               registerForm.errors !== 'null'">
+        <strong style="color: red">
+          {{'* Invalid Entries *' }}
+        </strong>
+      </div>
+
+      <div class="errorDiv" 
+        *ngIf="submitted &&
+               registerForm.pristine && 
+               registerForm.status === 'INVALID' &&
+               registerForm.errors !== 'null'" 
+      >
+        <strong style="color: red">
+          {{'* Please fill in all the fields or connect with Facebook below. *' }}
+        </strong>
+      </div>
+      
+      <button 
+        class="btn btn-primary" 
+        type="submit"
+      >Register</button><br>
+
+      <button 
+        class="btn btn-success btn-warning" 
+        type="button"
+        (click)="onReset()"
+      >Reset</button><br>
+
+      <button id="fb-connect" 
+        type="submit">
+        <img 
+          src="../../assets/images/continue_with_fb.png" 
+          alt="connect with facebook" 
+          width="100%"
+          height="100%"></button><br>
+
+      <div id="loginLink">
+        Already have an account?<br>
+        <a 
+          (click)="openModal()" 
+          routerLink="/login" 
+          routerLinkActive="router-link-active">
+          <button class="btn btn-success">Login</button></a>
+      </div>
+
+    </form>
+
+  </div>
+</div>
+
+<!-- <span 
+      style="font-size:30px;cursor:pointer" 
+      (click)="openModal()">&#9776; open</span> -->
+
+
+<!--NOTE TO SELF
+      
+    wrong <a 
+        class="nav-link" 
+        [routerLink]="callHome(data)">Home </a>
+  
+    right <a 
+        class="nav-link" 
+        [routerLink]="['/home']" 
+        (click)="doSomeLogic()">Home</a> 
+  -->

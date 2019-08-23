@@ -1,0 +1,69 @@
+#products-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.button-left {
+    border-radius: 5px;
+    background-color: white;
+    color: #F62F5E;
+    text-decoration-line: line-through;
+}
+
+.button-right {
+    float: right;
+    border-radius: 5px;
+    background-color: #F62F5E;
+    color: white;
+}
+
+.product-card {
+    flex: 1 0 21%;
+    margin: 15px 30px 15px 0;
+    padding: 10px;
+    height: 350px;
+    background-color: skyblue;
+    overflow: hidden;
+}
+ 
+.product-card:hover {
+    -webkit-box-shadow: 0px 0px 27px -9px #F62F5E;
+    -moz-box-shadow: 0px 0px 27px -9px #F62F5E;
+    box-shadow: 0px 0px 27px -9px #F62F5E;
+}
+
+.description {
+    overflow-y: auto;
+}
+    
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) { 
+    .product-card {
+        display: flex;
+        flex-direction: row;
+        /* flex-grow: 1; */
+        flex: 1 0 21%;
+        flex-basis: 100%;
+    }
+}
+
+/* Small devices (landscape phones, , 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) { 
+    .product-card {
+        display: flex;
+        flex-direction: row;
+        /* flex-grow: 1; */
+        flex: 1 0 50%;
+        /* flex-basis: 100%; */
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+
+}

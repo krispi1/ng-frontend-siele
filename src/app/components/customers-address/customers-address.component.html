@@ -1,0 +1,146 @@
+<form
+  (ngSubmit)="onSubmit()"
+  [formGroup]="addressForm"
+  novalidate>
+  <h4 class="text-primary">Update Shipping Address</h4>
+
+  <label for="address_1" aria-label="address_1">
+    <input
+      type="text"
+      formControlName="address_1"
+      name="address_1"
+      placeholder="Address_1"
+      required
+      autofocus
+    />
+  </label><br />
+
+  <label for="address_2" aria-label="address_2">
+    <input
+      type="text"
+      formControlName="address_2"
+      name="address_2"
+      placeholder="Address_2"
+      required
+    /><br />
+  </label><br />
+
+  <label for="city" aria-label="city">
+    <input
+      type="text"
+      formControlName="city"
+      name="city"
+      placeholder="City"
+      required
+    /><br />
+  </label><br />
+
+  <label for="region" aria-label="region">
+    <input
+      type="text"
+      formControlName="region"
+      name="region"
+      placeholder="Region"
+      required
+    /><br />
+  </label><br />
+
+  <label for="postal_code" aria-label="postal_code">
+    <input
+      type="text"
+      formControlName="postal_code"
+      name="postal_code"
+      placeholder="Postal_code"
+      required
+    /><br />
+  </label><br />
+
+  <label for="country" aria-label="country">
+    <select
+      id="selectCountry"
+      type="select"
+      formControlName="country"
+      name="country"
+      placeholder="Country"
+      required>
+      <option selected>Select Country</option>
+    </select>
+    <br />
+  </label><br />
+
+  <label for="shipping_region" aria-label="shipping_region">
+    Shipping Region<br>
+    <select
+      id="shipping_region"
+      type="select"
+      formControlName="shipping_region"
+      name="shipping_region"
+      placeholder="Shipping Region"
+      required>
+    </select>
+    <br />
+  </label><br />
+
+  <div
+    class="errorDiv"
+    *ngIf="
+      submitted &&
+      addressForm.dirty &&
+      addressForm.invalid &&
+      addressForm.errors != null
+    "
+  >
+    <strong style="color: red">
+      {{ "* Invalid Entries *" }}
+    </strong>
+  </div>
+
+  <div
+    class="errorDiv"
+    *ngIf="
+      submitted &&
+      addressForm.pristine &&
+      addressForm.status === 'INVALID' &&
+      addressForm.errors !== null
+    "
+  >
+    <strong style="color: red">
+      {{ "* Please fill in all the fields. *" }}
+    </strong>
+  </div>
+
+  <label for="submit button">
+    <button
+      class="btn btn-primary"
+      type="submit">
+      Update Address
+    </button>
+  </label><br />
+
+  <label>
+    <button
+      class="btn btn-success btn-warning"
+      type="button"
+      (click)="onReset()"
+    >
+      Reset
+    </button>
+  </label><br />
+</form>
+
+<!-- Fields
+    {
+        "address_1": "",
+        "address_2": "",
+        "city": "",
+        "region": "",
+        "postal_code": "",
+        "country": "",
+        "shipping_region_id": 1,
+
+        "day_phone": "+351323213511235",
+        "eve_phone": "+452436143246123",
+        "mob_phone": "+351323213511235",
+        "credit_card": "XXXXXXXX5100"
+      }
+-->

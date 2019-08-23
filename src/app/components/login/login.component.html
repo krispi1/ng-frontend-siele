@@ -1,0 +1,108 @@
+<div id="myNav" class="overlay">
+
+  <a
+    href="javascript:void(0)"
+    class="closebtn"
+    (click)="closeNav()"
+    >X
+  </a>
+  <!-- &times; -->
+
+  <div class="overlay-content">
+    <form
+      [formGroup]="loginForm"
+      (ngSubmit)="onSubmit()"
+      novalidate>
+
+      <a routerLink="/">
+        <img
+          class="mb-2"
+          src="../../assets/images/brand_icons/android-chrome-192x192.png"
+          alt="" width="50" height="50"><br>
+      </a>
+
+      <h3 class="text-primary">Login</h3>
+      <label for="email" aria-label="email">
+        <input
+          type="email"
+          formControlName="email"
+          name="email"
+          placeholder="Email"
+          required
+          autofocus /><br>
+      </label><br>
+
+      <label for="password" aria-label="password">
+        <input
+          type="password"
+          formControlName="password"
+          name="password"
+          placeholder="Password" required /><br>
+      </label><br>
+
+      <div class="errorDiv"
+        *ngIf="submitted &&
+               loginForm.dirty &&
+               loginForm.invalid &&
+               loginForm.errors !== null">
+        <strong style="color: red">
+          {{'* Invalid Entries *' }}
+        </strong>
+      </div>
+
+      <div class="errorDiv"
+        *ngIf="submitted &&
+               loginForm.pristine &&
+               loginForm.status === 'INVALID' &&
+               loginForm.errors !== null"
+      >
+        <strong style="color: red">
+          {{'* Please fill in both fields or connect with Facebook below. *' }}
+        </strong>
+      </div>
+
+      <button
+        class="btn btn-success"
+        type="submit"
+        >Login
+      </button><br>
+
+      <button
+        id="fb-connect"
+        type="submit"
+        ><img
+          src="../../assets/images/continue_with_fb.png"
+          alt="" width="100%" height="100%">
+      </button><br>
+
+      <div
+        id="registerLink">
+        Don't have an account?<br>
+        <a
+            (click)="openNav()"
+            routerLink="/register"
+            routerLinkActive="router-link-active">
+            <button class="btn btn-primary">Register</button></a>
+      </div>
+
+    </form>
+
+  </div>
+</div>
+
+<!-- <span
+    style="font-size:30px;cursor:pointer"
+    (click)="openNav()">&#9776; open</span> -->
+
+
+<!--NOTE TO SELF
+
+  wrong <a
+      class="nav-link"
+      [routerLink]="callHome(data)">Home </a>
+
+  right <a
+      class="nav-link"
+      [routerLink]="['/home']"
+      (click)="doSomeLogic()">Home</a>
+-->

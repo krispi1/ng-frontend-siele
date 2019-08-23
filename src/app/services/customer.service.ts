@@ -1,0 +1,76 @@
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+
+@Injectable({
+  providedIn: 'root'
+})
+
+export class CustomerService {
+
+  getCustomerUrl: string = "https://backendapi.turing.com/customer";
+  updateCustomerUrl: string = "https://backendapi.turing.com/customer";
+  updateCustomerAddressUrl: string = "https://backendapi.turing.com/customers/address";
+  updateCreditCardUrl: string = "https://backendapi.turing.com/customers/creditCard"
+
+  constructor(private http: HttpClient) { }
+
+  // GET: get customer by ID -- uses token
+  // "https://backendapi.turing.com/customer"
+  // No parameter
+  // Returns a customer object, or an error object
+  getCustomer(): Observable<any> {
+    return this.http.get<any>(this.getCustomerUrl);
+  }
+
+  // PUT: update a customer
+  // "https://backendapi.turing.com/customer"
+  // name*: string, email*: string, password: string,
+  // day_phone: string, eve_phone: string, mob_phone: string
+  // Parameter: customerObject with the above details
+  // Returns a customer object, or an error object
+  updateCustomer(customerObject): Observable<any> {
+    return this.http.put<any>(this.updateCustomerUrl, customerObject);
+  }
+
+  // PUT: update address from customer
+  // "https://backendapi.turing.com/customers/address"
+  // address_1*: string, address_2: string, city*: string,
+  // region*: string, postal_code*: string,
+  // country*: string, shipping_region_id*: number
+  // Parameter: customerAddressObject with the above details
+  // Returns a customer object, or an error object
+  updateCustomerAddress(customerAddressObject): Observable<any> {
+    return this.http.put<any>(this.updateCustomerAddressUrl, customerAddressObject);
+  }
+
+  // PUT: update customer's credit card
+  // "https://backendapi.turing.com/customers/creditCard"
+  // Parameter: cardNumber: string
+  // Returns a customer object, or an error object
+  updateCreditCard(cardNumber: string): Observable<any> {
+    return this.http.put<any>(this.updateCreditCardUrl, cardNumber);
+  }
+
+} // end CustomerService
+
+/**
+ * EXAMPLE CUSTOMER OBJECT returned
+ * {
+    "customer_id": 1,
+    "name": "Lannucci",
+    "email": "lannucci@hotmail.com",
+    "address_1": "QI 19",
+    "address_2": "",
+    "city": "",
+    "region": "",
+    "postal_code": "",
+    "country": "",
+    "shipping_region_id": 1,
+    "day_phone": "+351323213511235",
+    "eve_phone": "+452436143246123",
+    "mob_phone": "+351323213511235",
+    "credit_card": "XXXXXXXX5100"
+  }
+ *
+ */

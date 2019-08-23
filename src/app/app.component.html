@@ -1,21 +1,111 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div id="topNav" class="bg-white shadow-sm">
+    <nav id="topNavRow" class="nav">
 
-<router-outlet></router-outlet>
+      <div *ngIf="!isLoggedIn">
+        Hi!<a
+            class="pinkLink"
+            (click)="openNav()"
+            routerLink="/login"
+            routerLinkActive="router-link-active"
+            >Login
+          </a>
+
+          or
+        <a
+          class="pinkLink"
+          routerLink="/register"
+          routerLinkActive="router-link-active">
+          <span class="pinkLink">Register</span>
+        </a>
+      </div>
+
+      <div *ngIf="isLoggedIn">
+        <a href="/cart">
+            <img
+            class="linkImage"
+            src="../../assets/images/shopping-bag.png"
+        >Cart</a>
+
+        <a href="#">
+          <img
+          class="linkImage"
+          src="../../assets/images/profile.png"
+        >Profile</a>
+
+        <a href="/" (click)="logUserOut()">
+          <img
+          class="linkImage"
+          src="../../assets/images/logout.png"
+        >Logout</a>
+      </div>
+
+      <div>
+        <span class="topNavSpanLink">
+          <a href="#">Daily Deals</a></span>
+        <span class="topNavSpanLink"><a href="#">Sell</a></span>
+        <span class="topNavSpanLink"><a href="#">Help & Contact</a></span>
+      </div>
+
+      <div id="divRight">
+        <span class="topNavSpanLink">
+          <a href="/cart">
+            <img
+            class="linkImage"
+            src="../../assets/images/shopping-bag.png">
+          </a></span>Your bag:
+          <span id="checkoutAmount">${{cartTotal}}</span>
+      </div>
+
+    </nav>
+  </div>
+  <!-- end #topNav div-->
+
+  <!------------------------------------------------------------->
+
+  <div>
+    <nav id="secondNavRow" class="navbar-dark bg-dark nav">
+
+      <div>
+        <a
+          class="navbar-brand mr-auto mr-lg-0 pageLogo"
+          routerLink="/">
+          SHOPMATE</a>
+      </div>
+
+      <div id="secondNavRowDiv2">
+        <a
+          class="nav-link"
+          *ngFor="let department of departments"
+          routerLink="/products/indepartment/{{department.department_id}}"
+          (click)="grabProductsInGivenDepartment()"
+          routerLinkActive="active"
+          >{{department.name}}</a>
+      </div>
+
+      <div id="secondNavRowDiv3">
+          <label for="search"></label>
+          <input
+            [(ngModel)]="name"
+            class="search"
+            type="search"
+            placeholder="Search Anything"
+            aria-label="Search"
+          >
+          <!-- routerLink='products/search?query_string=' -->
+      </div>
+
+    </nav>
+  </div>
+<!------------------end NavBar------------------>
+<!-- Sandwich: &#9776; -->
+
+<div id="mainContent">
+  <div>
+      <app-categories></app-categories>
+  </div>
+  <div id="main-content-area">
+      <router-outlet></router-outlet>
+  </div>
+</div>
+
+<app-footer></app-footer>

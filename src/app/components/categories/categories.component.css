@@ -1,0 +1,32 @@
+h4 {
+    padding-bottom: 5px;
+    width: 100px;
+    border-bottom: 2px grey solid;
+    margin: 3px 0px 3px 15px;
+    font-size: 1.3em;
+}
+
+#categories {
+    width: 90px;
+    height: 300px;
+}
+
+.category {
+    margin-left: -20px;
+    padding-bottom: 5px;
+    font-weight: 700;
+    list-style-type: none;
+}
+
+.category-link {
+    color: gray;
+    text-decoration: none;
+}
+
+.category:hover {
+    color: #F62F5E;
+    border-bottom: 2px #F62F5E solid;
+    border-bottom-width: 2px;
+    cursor: pointer;
+    
+}

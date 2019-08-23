@@ -1,0 +1,11 @@
+#error-404 {
+    margin: 0 50px;
+    text-align: center;
+}
+
+button {
+    margin: 5px 0;
+    -webkit-box-shadow: 0px 2px 17px 2px #F62F5E;
+    -moz-box-shadow: 0px 2px 17px 2px #F62F5E;
+    box-shadow: 0px 2px 17px 2px #F62F5E;
+}

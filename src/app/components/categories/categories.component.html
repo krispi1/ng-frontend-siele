@@ -1,0 +1,16 @@
+<h4>Categories</h4>
+
+<div id="categories" *ngIf="categoryLinks">
+
+  <ul *ngFor="let category of categoryLinks">
+    <li class="category">
+      <a
+        class="category-link"
+        href="/products/inCategory/{{category.category_id}}"
+        (click)="grabProductsInGivenCategory()" routerLinkActive="active">
+        {{category.name}}
+      </a>
+    </li>
+  </ul>
+
+</div>
