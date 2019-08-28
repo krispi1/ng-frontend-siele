@@ -34,7 +34,7 @@ export class AuthService {
     if (token) {
       this.genCartId();
     }
-    
+
     return token;
   }
 
@@ -64,10 +64,10 @@ export class AuthService {
   }
 
   // Generate shopping cart_id upon login
-  genCartId() {
-   
+  genCartId() { // yet to remove this
+
     console.log(`Just b4 login..cart_id: ${this.cart_id}`); // for debugging
-    
+
     this.cartService
       .generateCartId()
       .subscribe(response => {
@@ -76,7 +76,7 @@ export class AuthService {
         console.log(`Upon login..cart_id: ${this.cart_id}`); // for debugging
       });
     console.log(`To return..cart_id: ${this.cart_id}`); // for debugging
-   
+
   } // end genCartId()
 
 } // end AuthService
@@ -86,3 +86,19 @@ export class AuthService {
  * https://backendapi.turing.com/customers
  *
  **/
+
+/**
+ ***Methods of AuthService***
+ *
+ * registerCustomer(customer) -- done
+ * loginCustomer(credentials) -- done/partially
+ * loginWithFacebook(access_token: string) -- not done
+ * lougoutCustomer() -- done
+ * loggedIn() -- done
+ * getToken() -- done
+ *
+ */
+
+ /**
+  ***Yet to refactor AuthService**
+  */
