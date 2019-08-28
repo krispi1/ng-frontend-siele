@@ -2,13 +2,17 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.3.
 
+## Clone the project from its Github repo
+
+Run `git clone "git@github.com:krispi1/turing-frontend-siele.git"`
+
+## Set up dependencies
+
+Run `npm install` to initialize app with package.json and node_modules
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
 
@@ -26,5 +30,6 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
-## Some learning resources
-1. https://www.youtube.com/watch?v=gxWMNrn1Slo
+### Some learning resources
+
+1. `https://www.youtube.com/watch?v=gxWMNrn1Slo`
