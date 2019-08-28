@@ -49,7 +49,6 @@ export class AuthService {
   // Log the customer out and redirect them to the homePage
   lougoutCustomer() {
     localStorage.removeItem('accessToken');
-    localStorage.removeItem('cart_id');
     this.router.navigate(['/']);
   }
 
@@ -88,7 +87,7 @@ export class AuthService {
  **/
 
 /**
- ***Methods of AuthService***
+ ***Methods of AuthService**
  *
  * registerCustomer(customer) -- done
  * loginCustomer(credentials) -- done/partially
@@ -101,4 +100,6 @@ export class AuthService {
 
  /**
   ***Yet to refactor AuthService**
+  ** Yet to remove cartService
+  *
   */
