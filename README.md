@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Clone the project from its Github repo
 
-Run `git clone "git@github.com:krispi1/turing-frontend-siele.git"`
+Run `git clone "https://github.com/krispi1/turing-frontend-siele.git"`
 
 ## Set up dependencies
 
