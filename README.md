@@ -32,4 +32,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ### Some learning resources
 
-1. `https://www.youtube.com/watch?v=gxWMNrn1Slo`
+1. Angular / Unit Testing / Routing
+   (https://www.youtube.com/watch?v=gxWMNrn1Slo)
