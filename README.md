@@ -33,3 +33,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ### Some learning resources
 
 1. [Angular / Unit Testing / Routing](https://www.youtube.com/watch?v=gxWMNrn1Slo)
+2. [Add authorization header to Angular http request](https://stackoverflow.com/questions/47400929/how-to-add-authorization-header-to-angular-http-request)
