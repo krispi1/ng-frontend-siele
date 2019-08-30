@@ -1,8 +1,10 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Department } from './interfaces/department';
 import { DepartmentsService } from './services/departments.service';
 import { AuthService } from './services/auth.service';
 import { CartService } from './services/cart.service';
+import { CustomerService } from './services/customer.service';
+import { Customer } from './interfaces/customer';
 
 @Component({
   selector: 'app-root',
@@ -15,16 +17,20 @@ export class AppComponent implements OnInit {
   constructor(
     private departmentsService: DepartmentsService,
     private authService: AuthService,
-    private cartService: CartService
-  ) {}
+    private cartService: CartService,
+    private customerService: CustomerService
+  ) { }
 
-  departments: Department []= [];
+  departments: Department[] = [];
   isLoggedIn: boolean = this.authService.loggedIn();
   cart_id = this.cartService.getLocalStorageCartId();
   name: string;
   cartTotal: number = 0;
+  customer: Customer;
 
   ngOnInit() {
+    this.initCustomer();
+
     /* For debugging */
     setInterval(
       () => console.log(`Logged In? ${this.name} ${this.isLoggedIn =
@@ -39,6 +45,21 @@ export class AppComponent implements OnInit {
     this.getCartTotal();
 
   } // end ngOnInit()
+
+  initCustomer() {
+    if (this.customer == null && this.isLoggedIn ) {
+      this.customerService.getCustomer()
+      .subscribe(
+        response => {
+          this.customer = response;
+          //console.log(this.customer); // For debugging
+        },
+        error => console.log(error)
+      );
+    } else {
+      return;
+    }
+  } // initCustomer()
 
   logUserOut() {
     this.authService.lougoutCustomer();
