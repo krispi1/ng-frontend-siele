@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,14 +14,30 @@ export class CustomerService {
   updateCustomerAddressUrl: string = "https://backendapi.turing.com/customers/address";
   updateCreditCardUrl: string = "https://backendapi.turing.com/customers/creditCard"
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private authService: AuthService
+  ) { }
 
   // GET: get customer by ID -- uses token
   // "https://backendapi.turing.com/customer"
   // No parameter
   // Returns a customer object, or an error object
   getCustomer(): Observable<any> {
-    return this.http.get<any>(this.getCustomerUrl);
+    let token = this.authService.getToken();
+
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json; charset=utf-8',
+      'Accept': 'application/json',
+      "USER-KEY": token
+    });
+
+    return this.http.get<any>(this.getCustomerUrl, { headers });
+
+    /* curl -X GET "https://backendapi.turing.com/customer"
+    -H "accept: application/json"
+    -H "USER-KEY: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdXN0b21lcl9pZCI6NTgzMzgsIm5hbWUiOiJzaWVsZSIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTU2NzE0NDc0OSwiZXhwIjoxNTY3MjMxMTQ5fQ.9ms1Mf1kHBSwpdXE46vSiSVqjQIlH-b95UQiCPEekV0" */
+
   }
 
   // PUT: update a customer
