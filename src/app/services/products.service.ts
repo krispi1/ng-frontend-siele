@@ -13,7 +13,8 @@ export class ProductsService {
 
   constructor(private http: HttpClient) { }
 
-  // fetchAllProducts() returns an observable stream of data.
+  /* fetchAllProducts() */
+  // Returns an observable stream of data.
   // The calling code has to subscribe to the observable in
   // order to retrieve the data.
   fetchAllProducts(): Observable<FetchResults> {
