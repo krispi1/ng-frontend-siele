@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { ShippingService } from 'src/app/services/shipping.service';
@@ -10,7 +10,7 @@ import { CustomerService } from 'src/app/services/customer.service';
   styleUrls: ['./customers-address.component.css']
 })
 
-export class CustomersAddressComponent implements OnInit {
+export class CustomersAddressComponent implements OnInit, AfterViewInit {
 
   addressForm: FormGroup;
   submitted = false;
@@ -31,22 +31,25 @@ export class CustomersAddressComponent implements OnInit {
         region: ['', Validators.required],
         postal_code: ['', Validators.required],
         country: ['', Validators.required],
-        shipping_region: ['', Validators.required],
+        shipping_region_id: ['', Validators.required],
       }
     );
 
-    // Initialize countries & shipping regions select elements
+  } // end ngOnInit()
+
+  ngAfterViewInit() {
+    // Initialize countries and shipping regions in view
     this.getCountries();
     this.initShippingRegions();
-
-  } // end ngOnInit()
+  }
 
   onSubmit() {
     let form = this.addressForm.value;
+    //console.log(form); // For debugging
 
     this.customerService.updateCustomerAddress(form)
         .subscribe(
-          response => response,
+          response => console.log(response),
           error => console.log(error)
         );
 
@@ -90,7 +93,7 @@ export class CustomersAddressComponent implements OnInit {
 
                 // Populate select dropdown dynamically
                 let option = document.createElement('option');
-                option.value = shippingRgn.shipping_region;
+                option.value = shippingRgn.shipping_region_id.toString();
                 option.textContent = shippingRgn.shipping_region;
                 shippingRegion.appendChild(option);
               }
