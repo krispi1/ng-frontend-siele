@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { CartService } from './cart.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +15,6 @@ export class AuthService {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private cartService: CartService
   ) { }
 
   // POST: Handle customer registration
@@ -30,12 +28,7 @@ export class AuthService {
   // Parameter: credentials shall hold the form data object
   // supplied by the calling code in the login component.
   loginCustomer(credentials) {
-    let token = this.http.post<any>(this.loginUrl, credentials);
-    if (token) {
-      this.genCartId();
-    }
-
-    return token;
+    return this.http.post<any>(this.loginUrl, credentials);
   }
 
   // POST: Handle Facebook login
@@ -63,7 +56,7 @@ export class AuthService {
   }
 
   // Generate shopping cart_id upon login
-  genCartId() { // yet to remove this
+  /* genCartId() { // yet to remove this
 
     console.log(`Just b4 login..cart_id: ${this.cart_id}`); // for debugging
 
@@ -76,7 +69,7 @@ export class AuthService {
       });
     console.log(`To return..cart_id: ${this.cart_id}`); // for debugging
 
-  } // end genCartId()
+  } */ // end genCartId()
 
 } // end AuthService
 
