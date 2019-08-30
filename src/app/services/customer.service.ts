@@ -19,17 +19,18 @@ export class CustomerService {
     private authService: AuthService
   ) { }
 
+  private accessToken = this.authService.getToken();
+
   // GET: get customer by ID -- uses token
   // "https://backendapi.turing.com/customer"
   // No parameter
   // Returns a customer object, or an error object
   getCustomer(): Observable<any> {
-    let token = this.authService.getToken();
 
     let headers = new HttpHeaders({
       'Content-Type': 'application/json; charset=utf-8',
       'Accept': 'application/json',
-      "USER-KEY": token
+      "USER-KEY": this.accessToken
     });
 
     return this.http.get<any>(this.getCustomerUrl, { headers });
@@ -46,9 +47,10 @@ export class CustomerService {
   // day_phone: string, eve_phone: string, mob_phone: string
   // Parameter: customerObject with the above details
   // Returns a customer object, or an error object
-  updateCustomer(customerObject): Observable<any> {
-    return this.http.put<any>(this.updateCustomerUrl, customerObject);
-  }
+    updateCustomer(customerObject): Observable<any> {
+      return this.http.put<any>(this.updateCustomerUrl, customerObject);
+    } // end updateCustomer()
+
 
   // PUT: update address from customer
   // "https://backendapi.turing.com/customers/address"
@@ -58,8 +60,27 @@ export class CustomerService {
   // Parameter: customerAddressObject with the above details
   // Returns a customer object, or an error object
   updateCustomerAddress(customerAddressObject): Observable<any> {
-    return this.http.put<any>(this.updateCustomerAddressUrl, customerAddressObject);
-  }
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Accept': 'application/json',
+        "USER-KEY": this.accessToken
+      })
+    }
+
+    return this.http.put<any>(this.updateCustomerAddressUrl, customerAddressObject, httpOptions);
+
+    /**AUTHORIZATION
+     *
+      curl -X PUT "https://backendapi.turing.com/customers/address"
+      -H "accept: application/json"
+      -H "USER-KEY: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdXN0b21lcl9pZCI6NTgzMzgsIm5hbWUiOiJzaWVsZSIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTU2NzE0NDc0OSwiZXhwIjoxNTY3MjMxMTQ5fQ.9ms1Mf1kHBSwpdXE46vSiSVqjQIlH-b95UQiCPEekV0"
+      -H "Content-Type: application/x-www-form-urlencoded"
+      -d "address_1=102&address_2=324&city=Nairobi&region=East%20Africa&postal_code=02000&country=Kenya&shipping_region_id=4"
+    */
+
+  } // end updateCustomerAddress()
 
   // PUT: update customer's credit card
   // "https://backendapi.turing.com/customers/creditCard"
