@@ -30,9 +30,12 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
-### Some learning resources
+### Some learning/reference resources
 
 1. [Angular / Unit Testing / Routing](https://www.youtube.com/watch?v=gxWMNrn1Slo)
 2. [Add authorization header to Angular http request](https://stackoverflow.com/questions/47400929/how-to-add-authorization-header-to-angular-http-request)
 3. [Invisible text after git log](https://github.com/cmderdev/cmder/issues/1567)
 4. [View files in staging area](https://stackoverflow.com/questions/2298047/git-ls-files-howto-identify-new-files-added-not-committed)
+5. [400 bad request and how to fix it](https://airbrake.io/blog/http-errors/400-bad-request)
+6. [Git in practice](https://try.github.io/)
+7. [Git tuts](https://git-scm.com/docs/gittutorial)
