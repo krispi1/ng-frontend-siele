@@ -18,8 +18,8 @@ const routes: Routes = [
   { path: '', component: ProductsComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'products/:id/details', component: ProductDetailComponent },
-  { 
-    path: 'cart', 
+  {
+    path: 'cart',
     component: CartComponent,
     canActivate: [AuthGuard] // protect cart route
   },
@@ -38,7 +38,7 @@ const routes: Routes = [
 })
 
 export class AppRoutingModule { };
-export const routingComponents = 
+export const routingComponents =
   [
     ProductsComponent,
     PageNotFoundComponent,
@@ -53,8 +53,8 @@ export const routingComponents =
   ];
 
 /** routingComponents array
- * 
+ *
  * "export const routingComponents" enables importing
  * a SINGLE array with all routing components in AppModule
- * 
+ *
  **/

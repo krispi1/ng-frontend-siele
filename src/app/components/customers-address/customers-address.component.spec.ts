@@ -3,6 +3,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { CustomersAddressComponent } from './customers-address.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('CustomersAddressComponent', () => {
   let component: CustomersAddressComponent;
@@ -10,7 +11,7 @@ describe('CustomersAddressComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ ReactiveFormsModule, FormsModule, HttpClientTestingModule ],
+      imports: [ ReactiveFormsModule, FormsModule, HttpClientTestingModule, RouterTestingModule ],
       declarations: [ CustomersAddressComponent ]
     })
     .compileComponents();
