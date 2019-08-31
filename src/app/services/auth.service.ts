@@ -8,28 +8,32 @@ import { Router } from '@angular/router';
 
 export class AuthService {
 
-  private registerUrl = "https://backendapi.turing.com/customers";
-  private loginUrl = "https://backendapi.turing.com/customers/login";
-  public cart_id: string = localStorage.getItem('cart_id');
-
   constructor(
     private http: HttpClient,
     private router: Router,
   ) { }
 
+  private registerUrl = "https://backendapi.turing.com/customers";
+  private loginUrl = "https://backendapi.turing.com/customers/login";
+  public cart_id: string = localStorage.getItem('cart_id');
+
   // POST: Handle customer registration
   // The customer parameter shall hold the form data object
   // supplied by the calling code in the register component.
   registerCustomer(customer) {
+
     return this.http.post<any>(this.registerUrl, customer);
-  }
+
+  } // end registerCustomer()
 
   // POST: Handle customer login
   // Parameter: credentials shall hold the form data object
   // supplied by the calling code in the login component.
   loginCustomer(credentials) {
+
     return this.http.post<any>(this.loginUrl, credentials);
-  }
+
+  } // end loginCustomer()
 
   // POST: Handle Facebook login
   // "https://backendapi.turing.com/customers/facebook"
@@ -41,19 +45,25 @@ export class AuthService {
 
   // Log the customer out and redirect them to the homePage
   lougoutCustomer() {
+
     localStorage.removeItem('accessToken');
     this.router.navigate(['/']);
-  }
+
+  } // end lougoutCustomer()
 
   // Return a boolean for whether a user is logged in or not
   loggedIn() {
+
     return !!localStorage.getItem('accessToken');
-  }
+
+  } // end loggedIn()
 
   // Retrieve accessToken from the localStorage
   getToken() {
+
     return localStorage.getItem('accessToken');
-  }
+
+  } // end getToken()
 
   // Generate shopping cart_id upon login
   /* genCartId() { // yet to remove this
@@ -95,4 +105,5 @@ export class AuthService {
   ***Yet to refactor AuthService**
   ** Yet to remove cartService
   *
+
   */
