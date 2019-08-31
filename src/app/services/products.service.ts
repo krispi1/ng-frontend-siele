@@ -9,21 +9,25 @@ import { FetchResults } from '../interfaces/fetchresults';
 
 export class ProductsService {
 
-  private productsUrl: string = 'https://backendapi.turing.com/products';
-
   constructor(private http: HttpClient) { }
+
+  private productsUrl: string = 'https://backendapi.turing.com/products';
 
   /* fetchAllProducts() */
   // Returns an observable stream of data.
   // The calling code has to subscribe to the observable in
   // order to retrieve the data.
   fetchAllProducts(): Observable<FetchResults> {
+
     return this.http.get<FetchResults>(this.productsUrl);
-  }
+
+  } // fetchAllProducts()
 
   fetchProductsInCategory(categoriesUrl): Observable<FetchResults> {
+
     return this.http.get<FetchResults>(categoriesUrl);
-  }
+
+  } // end fetchProductsInCategory()
 
 } // end ProductsService
 
