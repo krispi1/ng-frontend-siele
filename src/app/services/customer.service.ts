@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from './auth.service';
+import { Product } from '../interfaces/product';
 
 @Injectable({
   providedIn: 'root'
@@ -9,15 +10,15 @@ import { AuthService } from './auth.service';
 
 export class CustomerService {
 
-  getCustomerUrl: string = "https://backendapi.turing.com/customer";
-  updateCustomerUrl: string = "https://backendapi.turing.com/customer";
-  updateCustomerAddressUrl: string = "https://backendapi.turing.com/customers/address";
-  updateCreditCardUrl: string = "https://backendapi.turing.com/customers/creditCard"
-
   constructor(
     private http: HttpClient,
     private authService: AuthService
   ) { }
+
+  getCustomerUrl: string = "https://backendapi.turing.com/customer";
+  updateCustomerUrl: string = "https://backendapi.turing.com/customer";
+  updateCustomerAddressUrl: string = "https://backendapi.turing.com/customers/address";
+  updateCreditCardUrl: string = "https://backendapi.turing.com/customers/creditCard"
 
   private accessToken = this.authService.getToken();
 
@@ -25,7 +26,7 @@ export class CustomerService {
   // "https://backendapi.turing.com/customer"
   // No parameter
   // Returns a customer object, or an error object
-  getCustomer(): Observable<any> {
+  getCustomer(): Observable<Product> {
 
     let headers = new HttpHeaders({
       'Content-Type': 'application/json; charset=utf-8',
@@ -39,7 +40,7 @@ export class CustomerService {
     -H "accept: application/json"
     -H "USER-KEY: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdXN0b21lcl9pZCI6NTgzMzgsIm5hbWUiOiJzaWVsZSIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTU2NzE0NDc0OSwiZXhwIjoxNTY3MjMxMTQ5fQ.9ms1Mf1kHBSwpdXE46vSiSVqjQIlH-b95UQiCPEekV0" */
 
-  }
+  } // end getCustomer()
 
   // PUT: update a customer
   // "https://backendapi.turing.com/customer"
@@ -48,7 +49,9 @@ export class CustomerService {
   // Parameter: customerObject with the above details
   // Returns a customer object, or an error object
     updateCustomer(customerObject): Observable<any> {
+
       return this.http.put<any>(this.updateCustomerUrl, customerObject);
+
     } // end updateCustomer()
 
 
@@ -87,7 +90,9 @@ export class CustomerService {
   // Parameter: cardNumber: string
   // Returns a customer object, or an error object
   updateCreditCard(cardNumber: string): Observable<any> {
+
     return this.http.put<any>(this.updateCreditCardUrl, cardNumber);
+
   }
 
 } // end CustomerService
