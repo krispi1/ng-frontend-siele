@@ -30,12 +30,12 @@ export interface OrderDetails {
 
 export class OrderService {
 
+  constructor(private http: HttpClient) { }
+
   createOrderUrl: string = "https://backendapi.turing.com/orders";
   orderInfoUrl: string = "https://backendapi.turing.com/orders/";
   customerOrdersUrl: string = "https://backendapi.turing.com/orders/inCustomer";
   orderDetailsUrl: string = "https://backendapi.turing.com/orders/shortDetail/";
-  
-  constructor(private http: HttpClient) { }
 
   /* createOrder(orderObject) */
   // POST: create an order
@@ -45,8 +45,10 @@ export class OrderService {
   // Returns an Order ID object e.g. { "orderId": 1}
   // or an error object
   createOrder(orderObject): Observable<OrderId> {
+
     return this.http.post<OrderId>(this.createOrderUrl, orderObject);
-  } 
+
+  } // end createOrder()
 
   /* getOrderInfo(order_id: number) */
   // GET: get info about an order
@@ -54,10 +56,11 @@ export class OrderService {
   // Parameter: order_id*: number
   // Returns an order object (see below), or an error object
   getOrderInfo(order_id: number): Observable<Order> {
-    let tempUrl = this.orderInfoUrl + order_id;
 
+    let tempUrl = this.orderInfoUrl + order_id;
     return this.http.get<Order>(tempUrl);
-  }
+
+  } // end getOrderInfo()
 
   /* getCustomerOrders() */
   // GET: get orders by customer
@@ -65,8 +68,10 @@ export class OrderService {
   // No parameter
   // Returns an array of Orders, or an error object
   getCustomerOrders(): Observable<Order[]> {
+
     return this.http.get<Order[]>(this.customerOrdersUrl);
-  }
+
+  } // end  getCustomerOrders()
 
   /* getOrderDetails(order_id: number) */
   // GET: get order details
@@ -84,9 +89,11 @@ export class OrderService {
     }
    **/
   getOrderDetails(order_id: number): Observable<OrderDetails> {
+
     let tempUrl = this.orderDetailsUrl + order_id;
     return this.http.get<OrderDetails>(tempUrl);
-  }
+
+  } // end getOrderDetails()
 
 } // end OrderService
 
@@ -105,19 +112,29 @@ export class OrderService {
 
 // Example error responses:
 /** Error 400
-   *Error: 
-      { "code": "USR_02", 
+   *Error:
+      { "code": "USR_02",
         "message": "The field example is empty.",
-        "field": "example", 
+        "field": "example",
         "status": "500"
       }
-   **/ 
+   **/
 
   /** Error 401
-   *Error: 
+   *Error:
       {
-        "code": "AUT_02",  
+        "code": "AUT_02",
         "message": "The apikey is invalid."
         "field": "API-KEY"
       }
    **/
+
+/**
+ ***Methods of OrderService**
+ *
+ * createOrder(orderObject) -- done, not applied
+ * getOrderInfo(order_id: number) -- done, not applied
+ * getCustomerOrders() -- done, not applied
+ * getOrderDetails(order_id: number) -- done, not applied
+ *
+ */
