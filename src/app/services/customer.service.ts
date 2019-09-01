@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from './auth.service';
-import { Product } from '../interfaces/product';
+import { Customer } from '../interfaces/customer';
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +26,7 @@ export class CustomerService {
   // "https://backendapi.turing.com/customer"
   // No parameter
   // Returns a customer object, or an error object
-  getCustomer(): Observable<Product> {
+  getCustomer(): Observable<Customer> {
 
     let headers = new HttpHeaders({
       'Content-Type': 'application/json; charset=utf-8',
