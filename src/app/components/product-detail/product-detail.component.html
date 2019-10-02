@@ -8,32 +8,30 @@
   <!-- &times; -->
   <div class="overlay-content">
 
-    <div
+     <div
       id="#products-wrapper"
       class="card-group"
       *ngIf="thisProduct">
 
-      <div
+       <div
         class="card product-card"
         *ngFor='let product of thisProduct'>
         <div class="card-body">
 
           <h5 class="card-title">{{product.name}}</h5><br>
 
-          <!-- Example image url:
-    "https://backendapi.turing.com/images/products/wreath.gif"-->
-
           <img
             width="100"
             alt="Angular Logo"
-            src="https://backendapi.turing.com/images/products/{{product.image}}">
+            src="https://backendapi.turing.com/images/products/{{product.image}}"/>
             <br><br>
 
           <button class="button-left">{{product.discounted_price}}</button>
           <button class="button-right">{{product.price}}</button><br>
           <p class="description">{{product.description}}</p>
+
           <div id="color_div" name="color_div">Color</div>
-          <div name="size_div">Size</div>
+          <div id="size_div">Size</div>
 
           <div><button (click)="addProduct2Cart()">Add to cart</button></div>
           <label for="review">Leave a review<br>
@@ -43,10 +41,9 @@
           <label for="user-reviews">Reviews<br>
             <div class="user-reviews" name="user-reviews"></div>
           </label>
+
         </div>
       </div>
 
     </div>
-
-  </div>
 </div>

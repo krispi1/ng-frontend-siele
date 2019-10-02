@@ -18,16 +18,16 @@ const routes: Routes = [
   { path: '', component: ProductsComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'products/:id/details', component: ProductDetailComponent },
-  {
-    path: 'cart',
-    component: CartComponent,
-    canActivate: [AuthGuard] // protect cart route
-  },
   { path: 'products/indepartment/:id', component: ProductsInDepartmentComponent },
   { path: 'products/inCategory/:id', component: ProductsInCategoryComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'customers/address', component: CustomersAddressComponent},
+  {
+    path: 'cart',
+    component: CartComponent,
+    canActivate: [AuthGuard] // protect cart route
+  },
   { path: 'search', component: SearchComponent },
   { path: '**', component: PageNotFoundComponent },
 ];

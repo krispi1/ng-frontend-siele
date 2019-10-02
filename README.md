@@ -39,3 +39,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 5. [400 bad request and how to fix it](https://airbrake.io/blog/http-errors/400-bad-request)
 6. [Git in practice](https://try.github.io/)
 7. [Git tuts](https://git-scm.com/docs/gittutorial)
+8. [Multiple files in a single commit](https://stackoverflow.com/questions/32074850/how-to-add-multiple-files-in-git-for-a-single-commit/32473520)
+9. [Kill a process running on a given port](https://stackoverflow.com/questions/39632667/how-to-kill-the-process-currently-using-a-port-on-localhost-in-windows)

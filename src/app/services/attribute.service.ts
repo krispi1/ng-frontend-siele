@@ -3,14 +3,14 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 export interface Attribute {
-  attribute_id: number,
-  name: string
+  attribute_id: number;
+  name: string;
 }
 
 export interface AttributesInProduct {
-  attribute_name: string,
-  attribute_value_id: number,
-  attribute_value: string
+  attribute_name: string;
+  attribute_value_id: number;
+  attribute_value: string;
 }
 
 @Injectable({

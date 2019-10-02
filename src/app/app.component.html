@@ -20,11 +20,11 @@
       </div>
 
       <div *ngIf="isLoggedIn">
-        <a href="/cart">
+        <a *ngIf="customer" href="/cart">
             <img
             class="linkImage"
             src="../../assets/images/shopping-bag.png"
-        >Cart</a>
+        > {{customer.name}}</a>
 
         <a href="#">
           <img

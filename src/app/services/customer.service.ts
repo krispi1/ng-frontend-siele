@@ -15,10 +15,10 @@ export class CustomerService {
     private authService: AuthService
   ) { }
 
-  getCustomerUrl: string = "https://backendapi.turing.com/customer";
-  updateCustomerUrl: string = "https://backendapi.turing.com/customer";
-  updateCustomerAddressUrl: string = "https://backendapi.turing.com/customers/address";
-  updateCreditCardUrl: string = "https://backendapi.turing.com/customers/creditCard"
+  getCustomerUrl = 'https://backendapi.turing.com/customer';
+  updateCustomerUrl = 'https://backendapi.turing.com/customer';
+  updateCustomerAddressUrl = 'https://backendapi.turing.com/customers/address';
+  updateCreditCardUrl = 'https://backendapi.turing.com/customers/creditCard'
 
   private accessToken = this.authService.getToken();
 
@@ -28,16 +28,18 @@ export class CustomerService {
   // Returns a customer object, or an error object
   getCustomer(): Observable<Customer> {
 
-    let headers = new HttpHeaders({
+    const headers = new HttpHeaders({
       'Content-Type': 'application/json; charset=utf-8',
-      'Accept': 'application/json',
-      "USER-KEY": this.accessToken
+      Accept: 'application/json',
+      'USER-KEY': this.accessToken
     });
 
     return this.http.get<any>(this.getCustomerUrl, { headers });
 
     /* curl -X GET "https://backendapi.turing.com/customer"
     -H "accept: application/json"
+    // tslint:disable-next-line: max-line-length
+    // tslint:disable-next-line: max-line-length
     -H "USER-KEY: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdXN0b21lcl9pZCI6NTgzMzgsIm5hbWUiOiJzaWVsZSIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTU2NzE0NDc0OSwiZXhwIjoxNTY3MjMxMTQ5fQ.9ms1Mf1kHBSwpdXE46vSiSVqjQIlH-b95UQiCPEekV0" */
 
   } // end getCustomer()
@@ -67,10 +69,10 @@ export class CustomerService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/x-www-form-urlencoded',
-        'Accept': 'application/json',
-        "USER-KEY": this.accessToken
+        Accept: 'application/json',
+        'USER-KEY': this.accessToken
       })
-    }
+    };
 
     return this.http.put<any>(this.updateCustomerAddressUrl, customerAddressObject, httpOptions);
 

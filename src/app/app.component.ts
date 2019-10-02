@@ -52,14 +52,15 @@ export class AppComponent implements OnInit {
       .subscribe(
         response => {
           this.customer = response;
-          //console.log(this.customer); // For debugging
+          // console.log(this.customer); // For debugging
         },
         error => console.log(error)
       );
     } else {
       return;
     }
-  } // initCustomer()
+
+  } // end initCustomer()
 
   logUserOut() {
     this.authService.lougoutCustomer();

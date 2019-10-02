@@ -3,25 +3,25 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface OrderId {
-  order_id: number
+  order_id: number;
 }
 
 export interface Order {
-  order_id: number,
-  total_amount: number,
-  created_on: string,
-  shipped_on: string,
-  status: string,
-  name: string
+  order_id: number;
+  total_amount: number;
+  created_on: string;
+  shipped_on: string;
+  status: string;
+  name: string;
 }
 
 export interface OrderDetails {
-  order_id: number,
-  total_amount: number,
-  created_on: string,
-  shipped_on: string,
-  status: string,
-  name: string
+  order_id: number;
+  total_amount: number;
+  created_on: string;
+  shipped_on: string;
+  status: string;
+  name: string;
 }
 
 @Injectable({
@@ -32,10 +32,10 @@ export class OrderService {
 
   constructor(private http: HttpClient) { }
 
-  createOrderUrl: string = "https://backendapi.turing.com/orders";
-  orderInfoUrl: string = "https://backendapi.turing.com/orders/";
-  customerOrdersUrl: string = "https://backendapi.turing.com/orders/inCustomer";
-  orderDetailsUrl: string = "https://backendapi.turing.com/orders/shortDetail/";
+  createOrderUrl = 'https://backendapi.turing.com/orders';
+  orderInfoUrl = 'https://backendapi.turing.com/orders/';
+  customerOrdersUrl = 'https://backendapi.turing.com/orders/inCustomer';
+  orderDetailsUrl = 'https://backendapi.turing.com/orders/shortDetail/';
 
   /* createOrder(orderObject) */
   // POST: create an order
@@ -55,9 +55,10 @@ export class OrderService {
   // "https://backendapi.turing.com/orders/{order_id}"
   // Parameter: order_id*: number
   // Returns an order object (see below), or an error object
+  // tslint:disable-next-line: variable-name
   getOrderInfo(order_id: number): Observable<Order> {
 
-    let tempUrl = this.orderInfoUrl + order_id;
+    const tempUrl = this.orderInfoUrl + order_id;
     return this.http.get<Order>(tempUrl);
 
   } // end getOrderInfo()
@@ -71,7 +72,7 @@ export class OrderService {
 
     return this.http.get<Order[]>(this.customerOrdersUrl);
 
-  } // end  getCustomerOrders()
+  } // end getCustomerOrders()
 
   /* getOrderDetails(order_id: number) */
   // GET: get order details
@@ -88,9 +89,10 @@ export class OrderService {
       "name": "Test"
     }
    **/
+  // tslint:disable-next-line: variable-name
   getOrderDetails(order_id: number): Observable<OrderDetails> {
 
-    let tempUrl = this.orderDetailsUrl + order_id;
+    const tempUrl = this.orderDetailsUrl + order_id;
     return this.http.get<OrderDetails>(tempUrl);
 
   } // end getOrderDetails()

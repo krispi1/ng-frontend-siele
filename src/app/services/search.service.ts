@@ -7,13 +7,21 @@ import { BehaviorSubject } from 'rxjs';
 
 export class SearchService {
 
-  private messageSource = new BehaviorSubject<string>("");
-  public currentMessage = this.messageSource.asObservable();
-
   constructor() { }
 
+  private messageSource = new BehaviorSubject<string>("");
+  currentMessage = this.messageSource.asObservable();
+
   updateSearchTerm(message: string) {
+
     this.messageSource.next(message);
-  }
+
+  } // end updateSearchTerm()
 
 } // end SearchService
+
+/**
+ *
+ ***Yet to implement**
+ *
+ */

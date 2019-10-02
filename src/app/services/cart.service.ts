@@ -4,11 +4,11 @@ import { Observable } from 'rxjs';
 import { Product } from '../interfaces/product';
 
 export interface CartId {
-  cart_id: string
+  cart_id: string;
 }
 
 export interface CartTotal {
-  "total_amount": number
+  total_amount: number;
 }
 
 @Injectable({
