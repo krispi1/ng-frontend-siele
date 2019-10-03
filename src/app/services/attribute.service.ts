@@ -19,10 +19,10 @@ export interface AttributesInProduct {
 
 export class AttributeService {
 
-  attributesUrl: string = "https://backendapi.turing.com/attributes";
-  attributesListUrl: string = "https://backendapi.turing.com/attributes/";
-  attributeValuesUrl: string = "https://backendapi.turing.com/attributes/values/";
-  attributesInProductUrl: string = "https://backendapi.turing.com/attributes/inProduct/";
+  attributesUrl = 'https://backendapi.turing.com/attributes';
+  attributesListUrl = 'https://backendapi.turing.com/attributes/';
+  attributeValuesUrl = 'https://backendapi.turing.com/attributes/values/';
+  attributesInProductUrl = 'https://backendapi.turing.com/attributes/inProduct/';
 
   constructor(private http: HttpClient) { }
 
@@ -43,7 +43,7 @@ export class AttributeService {
   // Returns an attributes list object, or an error object
   // Example success { "attribute_id": 1, "name": "Size" }
   getAttributesList(attribute_id: number): Observable<Attribute> {
-    let tempUrl = this.attributesListUrl + attribute_id;
+    const tempUrl = this.attributesListUrl + attribute_id;
 
     return this.http.get<Attribute>(tempUrl);
   }
@@ -54,7 +54,7 @@ export class AttributeService {
   // Parameter: attribute_id*: number
   // Returns an array of attribute values object, or an error object
   getAttributeValues(attribute_id: number): Observable<Attribute[]> {
-    let tempUrl = this.attributeValuesUrl + attribute_id;
+    const tempUrl = this.attributeValuesUrl + attribute_id;
 
     return this.http.get<Attribute[]>(tempUrl);
   }
@@ -66,7 +66,7 @@ export class AttributeService {
   // Returns an array of attributes-in-product objects
   // or an error object
   getAttributesInProduct(product_id: number): Observable<AttributesInProduct[]> {
-    let tempUrl = this.attributesInProductUrl + product_id;
+    const tempUrl = this.attributesInProductUrl + product_id;
 
     return this.http.get<AttributesInProduct[]>(tempUrl);
   }

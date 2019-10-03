@@ -13,8 +13,8 @@ export class AuthService {
     private router: Router,
   ) { }
 
-  private registerUrl = "https://backendapi.turing.com/customers";
-  private loginUrl = "https://backendapi.turing.com/customers/login";
+  private registerUrl = 'https://backendapi.turing.com/customers';
+  private loginUrl = 'https://backendapi.turing.com/customers/login';
   public cart_id: string = localStorage.getItem('cart_id');
 
   // POST: Handle customer registration

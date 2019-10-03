@@ -3,7 +3,7 @@ const path = require('path');
 
 const app = express();
 
-// Serve only the static files form the turing-frontend-siele directory
+// Serve only the static files from the turing-frontend-siele directory
 app.use(express.static(__dirname + '/dist/turing-frontend-siele'));
 
 app.get('/*', function(req,res) {

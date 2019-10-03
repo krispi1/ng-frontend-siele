@@ -19,16 +19,16 @@ export class CartService {
 
   constructor(private http: HttpClient) { }
 
-  generateCartIdUrl: string = "https://backendapi.turing.com/shoppingcart/generateUniqueId";
-  addToCartUrl: string = "https://backendapi.turing.com/shoppingcart/add";
-  productsInCartUrl: string = "https://backendapi.turing.com/shoppingcart/";
-  updateCartUrl: string = "https://backendapi.turing.com/shoppingcart/update/";
-  moveToCartUrl: string = "https://backendapi.turing.com/shoppingcart/moveToCart/";
-  cartTotalUrl: string = "https://backendapi.turing.com/shoppingcart/totalAmount/";
-  emptyCartUrl: string = "https://backendapi.turing.com/shoppingcart/empty/";
-  saveForLaterUrl: string = "https://backendapi.turing.com/shoppingcart/saveForLater/";
-  getSavedForLaterUrl: string = "https://backendapi.turing.com/shoppingcart/getSaved/";
-  deleteFromCartUrl: string = "https://backendapi.turing.com/shoppingcart/removeProduct/";
+  generateCartIdUrl = 'https://backendapi.turing.com/shoppingcart/generateUniqueId';
+  addToCartUrl = 'https://backendapi.turing.com/shoppingcart/add';
+  productsInCartUrl = 'https://backendapi.turing.com/shoppingcart/';
+  updateCartUrl = 'https://backendapi.turing.com/shoppingcart/update/';
+  moveToCartUrl = 'https://backendapi.turing.com/shoppingcart/moveToCart/';
+  cartTotalUrl = 'https://backendapi.turing.com/shoppingcart/totalAmount/';
+  emptyCartUrl = 'https://backendapi.turing.com/shoppingcart/empty/';
+  saveForLaterUrl = 'https://backendapi.turing.com/shoppingcart/saveForLater/';
+  getSavedForLaterUrl = 'https://backendapi.turing.com/shoppingcart/getSaved/';
+  deleteFromCartUrl = 'https://backendapi.turing.com/shoppingcart/removeProduct/';
 
   /**EXAMPLES OF SERVER RESPONSES are near bottom of this file
    *
